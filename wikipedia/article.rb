@@ -10,9 +10,7 @@ module Article
     hash_keys = response['query']['pages'].keys
     result = response['query']['pages'][hash_keys[0]]['extract']
     index = result.index '</p>'
-    puts index
     result.slice 0, index
   end
   module_function :find_article
 end
-puts Article.find_article 34.02, -84.36
