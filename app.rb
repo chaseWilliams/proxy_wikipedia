@@ -1,11 +1,9 @@
 require './wikipedia/loader'
 
 class App < Sinatra::Base
-  # Remember that this is a helper function that will process each request (regardless of endpoint) before
-  # processing the get/post/put sections below
   before do
     content_type 'application/json'
-    # [...other code will go here, if needed...]
+
   end
 
   get '/standard' do
