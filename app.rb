@@ -1,5 +1,4 @@
 require './wikipedia/loader'
-require 'sinatra'
 
 class App < Sinatra::Base
   # Remember that this is a helper function that will process each request (regardless of endpoint) before

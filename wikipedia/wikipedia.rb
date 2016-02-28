@@ -1,4 +1,4 @@
-require 'rest-client'
+
 module Article
   def find_article lat, long
     endpoint_geo = "https://en.wikipedia.org/w/api.php?action=query&format=json&list=geosearch&gsradius=10000&gscoord="
