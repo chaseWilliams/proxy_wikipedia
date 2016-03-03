@@ -8,7 +8,7 @@ module Article
     def find_article lat, lon
       geo = "#{lat}|#{lon}"
       data = find_article_helper lat, lon
-      if !@redis.exists(geo)
+      unless @redis.exists(geo)
         @logger_out.info "The key #{geo} wasn't found, so setting new article extracts"
         unless data['status'] == 'ok'
           @logger_out.warn "Woah- looks like the key #{geo} has a fail status. Watch out!"

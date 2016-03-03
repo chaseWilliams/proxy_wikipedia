@@ -22,7 +22,7 @@ class App < Sinatra::Base
       'Looks like you gave a bad request- please try again after changing your URL'
     else
       data = wikipedia.find_article latitude, longitude
-      Logger.new(STDOUT).info "Data successfully Obtained! #{data}."
+      Logger.new(STDOUT).info "Data is #{data}."
       {status: data['status'], title: data['title'], extract: data['extract']}.to_json
     end
   end
