@@ -20,6 +20,7 @@ module Article
         @logger_out.info "The key #{geo} was found, overriding..."
       end
       @redis.set geo, data.to_json
+      @logger_out.info "about to attempt to parse #{@redis.get geo}"
       result = JSON.parse @redis.get geo
       @logger_out.info "Key #{geo} successfully captured!"
       result
@@ -41,6 +42,7 @@ module Article
         index = result.index '</p>'
         extract = result.slice 0, index
         to_be_returned = {status: 'ok', title: title, extract: extract.strip}
+        @logger_out.info "The data is #{to_be_returned}"
       rescue StandardError => e
         to_be_returned = {status: 'fail'}
       end
